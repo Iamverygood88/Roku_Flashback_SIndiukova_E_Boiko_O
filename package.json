@@ -1,0 +1,23 @@
+{
+  "name": "sass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch sass -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Iamverygood88/Roku_Flashback_SIndiukova_E_Boiko_O.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Iamverygood88/Roku_Flashback_SIndiukova_E_Boiko_O/issues"
+  },
+  "homepage": "https://github.com/Iamverygood88/Roku_Flashback_SIndiukova_E_Boiko_O#readme",
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  }
+}
