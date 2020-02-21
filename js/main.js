@@ -1,5 +1,6 @@
 import KidsPage from './modules/KidsPage.js';
 import UsersComponent from "./components/UsersComponent.js";
+import AdultPage from './modules/AdultPage.js';
 
 Vue.component('player', {
   props: ['movie'],
@@ -19,7 +20,9 @@ Vue.component('player', {
 const router = new VueRouter({
   routes: [
     {path: "/", name: "home", component: UsersComponent},
-    {path: '/kids', name: "kids", component: KidsPage}
+    {path: '/kids', name: "kids", component: KidsPage},
+    {path: '/adult', name: "adult", component: AdultPage}
+
   ]
 })
 
@@ -37,16 +40,7 @@ var vm = new Vue({
 
 
     // this data would also come from the database, but we'll just mock it up for now
-    videodata: [
-      { name: "Star Wars The Force Awakens", thumb: "forceawakens.jpg", vidsource: "forceawakens.mp4", description: "yet another star wars movie" },
-      { name: "Stranger Things", thumb: "strangerthings.jpg", vidsource: "strangerthings.mp4", description: "don't get lost in the upside down" },
-      { name: "Marvel's The Avengers", thumb: "avengers.jpg", vidsource: "avengers.mp4", description: "will they make black widow action figures this time?" }
-    ],
-    movie: {
-    videotitle: "video title goes here",
-    vidsource: "",
-    videodescription: "video description here"
-    },
+ 
 
 
     showDetails: false
@@ -86,14 +80,24 @@ var vm = new Vue({
       this.user.isLoggedIn = (this.user.isLoggedIn) ? false : true;
     },
 
-    showMovieDetails({name, vidsource, description}) {
-      // console.log('show these details: ', movie);
+    getKidMoviesData() {
+      //do a fetch call here and get the user from the DB
+      const url = '../../includes/index.php?getKidMovie=1';
 
-      this.movie.videotitle = name;
-      this.movie.vidsource = vidsource;
-      this.movie.videodescription = description;
+      fetch(url) // get data from the DB 
+      .then(res => res.json()) // translate JSON from DB to plain object
+      .then(data => { //use the plain data object (the user)
+        console.log(data);
+        
+        // log it to the console (testing)
+        this.movieKid.settings = data[0];
+      })
+      .catch((error) => console.error(error))
 
-      this.showDetails =  true;
+    },
+    setKidMoviesPrefs() {
+      // this is the preferences control, hit the api when ready (or use a component)
+      console.log('set user prefs here');
     }
 
   }

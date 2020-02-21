@@ -1,9 +1,9 @@
 
 .kids-section {
-    background: url(../images/bg_k.jpg) no-repeat  fixed;
+    background: url(../images/bg_k.jpg)  fixed;
     background-size: cover;
     min-width: 100%;
-    height: 100vh;
+    min-height: 100%;
 }
 
 .kids-message {
@@ -73,3 +73,47 @@ input {
 
 
 }
+
+.movie-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    flex-wrap: wrap;
+}
+
+.kid-movie-poster {
+    margin-top: 25px;
+    padding: 13px;
+    border: 2px solid white;
+
+}
+
+.kid-movie {
+    position: relative;
+
+    img {
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
+}
+
+
+
+  .kid-movie:hover .kid-movie-poster {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  
+  .kid-movie:hover .box-hover {
+    opacity: 1;
+    cursor: pointer; 
+    
+  }
+  
+  p {
+    background-color:#940092;
+    color: white;
+    font-size: 20px;
+    padding: 16px 32px;
+    font-family: 'Montserrat', sans-serif;
+  }

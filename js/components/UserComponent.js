@@ -5,9 +5,13 @@ export default {
     <div class="col-sm-1">
     
     
-    <router-link to="/kids" class="user-name">
+    <router-link v-if="liveuser.id == '2'" to="/kids" class="user-name">
     <img :src="'images/' + liveuser.avatar" alt="user avatar" class="u-avatar">
     </router-link>
+    <router-link v-if="liveuser.id == '1'" to="/adult" class="user-name">
+    <img :src="'images/' + liveuser.avatar" alt="user avatar" class="u-avatar">
+    </router-link>
+  
     <div class="box-hover">
     <p class="user-name">{{liveuser.user_name}}</p>
     </div>
@@ -18,5 +22,5 @@ export default {
     `
 }
 
-//<img src="../images/{{liveuser.avatar}}">
-//<p class="user-name">{{liveuser.user_name}}</p>
+  
+    
