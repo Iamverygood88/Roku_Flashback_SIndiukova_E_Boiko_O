@@ -1,3 +1,4 @@
+
 import UserComponent from "./UserComponent.js";
 
 
@@ -6,7 +7,8 @@ export default {
     <div class="container">
     <div class="row">
     <h1 class="user-message"> {{message}} </h1>
-    <div class="col-sm-12">
+    <h2 class="welcome-message"> {{subHeader}} </h2>
+    <div class="col-sm-12"> 
     <user v-for="user in userList" :liveuser="user"></user>
     </div>
     </div>
@@ -14,7 +16,8 @@ export default {
     `, 
     data: function() {
         return {
-            message: "Who's Using Roku?",
+            message: "Roku",
+            subHeader: "Come on, stranger, show who you are!",
             userList: []
         }
     },

@@ -1,3 +1,4 @@
+import KidsPage from './modules/KidsPage.js';
 import UsersComponent from "./components/UsersComponent.js";
 
 Vue.component('player', {
@@ -17,7 +18,8 @@ Vue.component('player', {
 
 const router = new VueRouter({
   routes: [
-    {path: "/", name: "home", component: UsersComponent}
+    {path: "/", name: "home", component: UsersComponent},
+    {path: '/kids', name: "kids", component: KidsPage}
   ]
 })
 
