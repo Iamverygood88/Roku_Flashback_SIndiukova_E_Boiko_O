@@ -8,3 +8,9 @@ if(isset($_GET["getUsers"])) {
 
     echo json_encode($users);
 }
+
+if(isset($_GET["getKidMovies"])) {
+    $kidMovies = getKidMovies($pdo);
+
+    echo json_encode($kidMovies);
+}

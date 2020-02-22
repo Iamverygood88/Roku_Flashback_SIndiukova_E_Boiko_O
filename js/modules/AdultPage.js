@@ -1,8 +1,8 @@
-import KidsMovie from "./kidMovies.js";
+
 
 export default {
     template: `
-    <section class="kids-section">
+    <section class="adult-section">
     <div class="header-kids">
     <div>
     <h1 class="user-message"> {{message}} </h1>
@@ -22,7 +22,6 @@ export default {
     <div class="movies-section">
     <h2 class="movie-header"> {{televisionHeader}} </h2>
     <div class="movie-flex">
-    <movieKid v-for="movieKid in kidMoviesList" :moveskid="movieKid"></movieKid>
     </div>
     </div>
     
@@ -46,24 +45,22 @@ export default {
         }
     },
 
-    created: function() {
-        // this will fire when the component gets build
-        this.fetchAllKidMovies();
-    },
+    // created: function() {
+    //     // this will fire when the component gets build
+    //     this.fetchAllKidMovies();
+    // },
 
-    methods: {
-        fetchAllKidMovies() {
-            let url = `./includes/index.php?getKidMovies=true`;
-            fetch(url)
-            .then(res => res.json())
-            .then(data => {this.kidMoviesList = data})
-            .catch((err) => {console.error(err)})
-        }
-    },
+    // methods: {
+    //     fetchAllKidMovies() {
+    //         let url = `./includes/index.php?getKidMovies=true`;
+    //         fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => {this.kidMoviesList = data})
+    //         .catch((err) => {console.error(err)})
+    //     }
+    // },
 
-    components: {
-        movieKid: KidsMovie
-    }
+
 
 
    
