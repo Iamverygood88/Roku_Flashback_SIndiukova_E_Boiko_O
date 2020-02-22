@@ -14,3 +14,15 @@ if(isset($_GET["getKidMovies"])) {
 
     echo json_encode($kidMovies);
 }
+
+if(isset($_GET["getKidTelevision"])) {
+    $kidTelevision = getKidTelevision($pdo);
+
+    echo json_encode($kidTelevision);
+}
+
+if(isset($_GET["getMusic"])) {
+    $music = getMusic($pdo);
+
+    echo json_encode($music);
+}
