@@ -1,27 +1,17 @@
 import KidsPage from './modules/KidsPage.js';
 import UsersComponent from "./components/UsersComponent.js";
 import AdultPage from './modules/AdultPage.js';
+import LoginPage from './components/loginComponent.js';
 
-Vue.component('player', {
-  props: ['movie'],
 
-  template: `
-      <div>
-      <h3 class="movie-title">{{ movie.videotitle }}</h3>
-      <video :src="'video/'+ movie.vidsource" controls autoplay></video>
-      <div class="movie-details">
-        <p>{{ movie.videodescription }}</p>
-      </div> 
-      </div>
-  `
 
-})
 
 const router = new VueRouter({
   routes: [
     {path: "/", name: "home", component: UsersComponent},
     {path: '/kids', name: "kids", component: KidsPage},
-    {path: '/adult', name: "adult", component: AdultPage}
+    {path: '/adult', name: "adult", component: AdultPage},
+    {path: '/login', name: "login", component: LoginPage}
 
   ]
 })
@@ -38,22 +28,52 @@ var vm = new Vue({
       settings: {}
     },
 
+    authenticated: false,
+    administrator: false,
 
-    // this data would also come from the database, but we'll just mock it up for now
+      mockAccount: {
+        username: "user",
+        password: "password"
+      },
+
+      user: [],
+
+      
  
 
 
-    showDetails: false
   },
 
   created: function() {
     // run a fetch call and get the user data
     console.log('created lifecycle hook fired here, go get user data');
     // this.getUserData();
+    
 
   },
 
   methods: {
+
+
+
+    setAuthenticated(status, data) {
+      this.authenticated = status;
+      // handle implicit type coercion (bad, bad part of JS)
+      // turn out admin 1 or 0 back into a number
+      this.administrator = parseInt(data.isadmin); 
+      this.user = data; 
+    },
+
+    logout() {
+      // delete local session
+
+      // push user back to login page
+      this.$router.push({ path: "/login" });
+      this.authenticated = false;
+      this.administrator = false;
+
+    },
+
     getUserData() {
       //do a fetch call here and get the user from the DB
       const url = './includes/index.php?getUser=1';
@@ -142,4 +162,15 @@ var vm = new Vue({
 
   }
 
-});
+}).$mount("#app");
+
+// router.beforeEach((to, from, next) =>  {
+//   console.log('router guard fired');
+//   if(vm.authenticated == false){
+//     next("/login");
+//   } else {
+//     next();
+//   }
+// })
+
+

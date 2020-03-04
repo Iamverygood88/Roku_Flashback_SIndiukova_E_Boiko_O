@@ -3,6 +3,14 @@ include('functions.php');
 
 // if we are passing in a user key in the GET superglobal, then go get a user
 
+if (isset($_GET['user'])) {
+    $user = getUser($pdo);
+
+
+echo json_encode($user);
+
+}
+
 if(isset($_GET["getUsers"])) {
     $users = getUsers($pdo);
 
@@ -26,3 +34,4 @@ if(isset($_GET["getMusic"])) {
 
     echo json_encode($music);
 }
+

@@ -8,7 +8,7 @@ export default {
     <router-link v-if="liveuser.id == '2'" to="/kids" class="user-name">
     <img :src="'images/' + liveuser.avatar" alt="user avatar" class="u-avatar">
     </router-link>
-    <router-link v-if="liveuser.id == '1'" to="/adult" class="user-name">
+    <router-link v-if="liveuser.id == '1'" to="/login" class="user-name">
     <img :src="'images/' + liveuser.avatar" alt="user avatar" class="u-avatar">
     </router-link>
   
@@ -18,8 +18,13 @@ export default {
     
     
     
+    
+    
     </div>
-    `
+    `,
+
+
+    
 }
 
   

@@ -1,4 +1,6 @@
 import AdultMovie from "./adultMovies.js";
+import AdultTelevision from "./adultTelevision.js";
+import musicSectionA from "./musicAdult.js";
 
 export default {
     template: `
@@ -22,8 +24,56 @@ export default {
     <div class="movies-section">
     <h2 class="movie-header"> {{televisionHeader}} </h2>
     <div class="movie-flex">
+    <televisionAdult v-for="televisionAdult in kidTelevisionList" :televisionA="televisionAdult"></televisionAdult>
     </div>
     </div>
+    <div class="movies-section">
+    <h2 class="movie-header"> {{musicHeader}} </h2>
+    <div class="movie-flex">
+    <musicAdult v-for="musicAdult in musicList" :musicA="musicAdult"></musicAdult>
+    </div>
+    </div>
+    <footer> 
+    <div class="margin-footer">
+    <div>
+    <h2>{{FAQ}}</h2>
+    <p>Special offers</p>
+    <p>How to use Roku</p>
+    <p>Channel store</p>
+    <p>How to pay</p>
+    <p>How to explore</p>
+    </div>
+    <div>
+    <h2>{{S}}</h2>
+    <p>Support home</p>
+    <p>Account</p>
+    <p>Billing</p>
+    <p>Your orders</p>
+    <p>Agreement</p>
+    </div>
+    <div>
+    <h2>{{C}}</h2>
+    <p>Call back</p>
+    <p> Public relations</p>
+    <p>Resellers</p>
+    <p>Call centre</p>
+    </div>
+    <div>
+    <h2>{{P}}</h2>
+    <p>Roku TV</p>
+    <p> Roku music</p>
+    <p>Roku movies</p>
+    <p>Mobile app</p>
+    </div>
+    <div>
+    <h2>{{CP}}</h2>
+    <p>About us</p>
+    <p>News</p>
+    <p>Investors</p>
+    <p>License</p>
+    </div>
+    </div>
+    </footer>
     
     </section>
 
@@ -38,7 +88,15 @@ export default {
             avatarIcon: "login1.svg",
             movieHeader: "Movies",
             televisionHeader: "Television",
-            kidMoviesList: []
+            musicHeader: 'Music', 
+            FAQ: 'FAQ',
+            S: 'Support',
+            C: 'Contact',
+            P: 'Products',
+            CP: 'Company',
+            kidMoviesList: [],
+            kidTelevisionList: [],
+            musicList: []
 
 
 
@@ -48,6 +106,8 @@ export default {
     created: function() {
         // this will fire when the component gets build
         this.fetchAllKidMovies();
+        this.fetchAllKidTelevision();
+        this.fetchAllMusic();
     },
 
     methods: {
@@ -57,11 +117,31 @@ export default {
             .then(res => res.json())
             .then(data => {this.kidMoviesList = data})
             .catch((err) => {console.error(err)})
-        }
+        },
+        fetchAllKidTelevision() {
+            let url = `./includes/index.php?getKidTelevision=true`;
+            fetch(url)
+            .then(res => res.json())
+            .then(data => {this.kidTelevisionList = data})
+            .catch((err) => {console.error(err)})
+
+
+    },
+    fetchAllMusic() {
+        let url = `./includes/index.php?getMusic=true`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {this.musicList = data})
+        .catch((err) => {console.error(err)})
+
+
+}
     },
 
     components: {
-        movieA: AdultMovie
+        movieA: AdultMovie,
+        televisionAdult: AdultTelevision,
+        musicAdult: musicSectionA
         
     },
 
