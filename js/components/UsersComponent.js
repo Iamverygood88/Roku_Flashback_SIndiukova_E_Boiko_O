@@ -9,7 +9,7 @@ export default {
     <h1 class="user-message"> {{message}} </h1>
     <h2 class="welcome-message"> {{subHeader}} </h2>
     <div class="col-sm-12"> 
-    <user v-for="user in userList" :liveuser="user"></user>
+    <users v-for="users in usersList" :liveuser="users"></users>
     </div>
     </div>
     </div> 
@@ -18,7 +18,7 @@ export default {
         return {
             message: "Roku",
             subHeader: "Come on, stranger, show who you are!",
-            userList: []
+            usersList: []
         }
     },
 
@@ -32,12 +32,12 @@ export default {
             let url = `./includes/index.php?getUsers=true`;
             fetch(url)
             .then(res => res.json())
-            .then(data => {this.userList = data})
+            .then(data => {this.usersList = data})
             .catch((err) => {console.error(err)})
         }
     },
 
     components: {
-        user: UserComponent
+        users: UserComponent
     }
 }

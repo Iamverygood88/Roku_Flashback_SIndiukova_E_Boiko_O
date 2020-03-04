@@ -17,9 +17,10 @@ export default {
     </div>
     <div class="movies-section">
     <h2 class="movie-header"> {{movieHeader}} </h2>
-    <div class="movie-flex">
-    <movieKid v-for="movieKid in kidMoviesList" :moveskid="movieKid"></movieKid>
+    <div class="movie-flex" >
+    <movieKid v-for="movieKid in kidMoviesList" :moveskid="movieKid" v-on:click='openLightbox'></movieKid>
     </div>
+    
     </div>
     <div class="movies-section">
     <h2 class="movie-header"> {{televisionHeader}} </h2>
@@ -111,7 +112,11 @@ export default {
         this.fetchAllMusic();
     },
 
+    
+
     methods: {
+
+            
         fetchAllKidMovies() {
             let url = `./includes/index.php?getKidMovies=true`;
             fetch(url)
@@ -145,7 +150,8 @@ export default {
     components: {
         televisionKid: kidTelevision, 
         movieKid: KidsMovie,
-        music: musicSection
+        music: musicSection,
+       
         
     },
 

@@ -4,6 +4,7 @@
        function getUsers($conn) {
 
            $getData = 'SELECT * FROM tbl_user';
+        //    $getData = 'SELECT * FROM tbl_user WHERE user_name="'.$username.'"';
            $runQuery = $conn->query($getData);
 
            $result = array();
@@ -55,6 +56,26 @@
         }
 
         return $resultMusic;
+    }
+
+
+    function getUser($conn) {
+        // validate that the post method is working from out JS file
+        $username = $_POST['username'];
+
+        // echo $userame; 
+
+        $getUser = 'SELECT * FROM tbl_user WHERE user_name="'.$username.'"';
+        $runQuery = $conn->query($getUser);
+
+        $resultUser = array();
+
+        while($row = $runQuery->fetch(PDO::FETCH_ASSOC)) {
+            // push each row of data into our arry to make it easy to iterate over
+            $resultUser[] = $row;
+        }
+
+        return $resultUser;
     }
 
 ?>
