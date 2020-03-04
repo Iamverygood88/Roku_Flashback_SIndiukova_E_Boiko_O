@@ -72,7 +72,15 @@ input {
   position: relative; }
   .kid-movie img {
     transition: .5s ease;
-    backface-visibility: hidden; }
+    backface-visibility: hidden;
+    width: 200px;
+    height: 300px; }
+  .kid-movie p {
+    background-color: #940092;
+    color: white;
+    font-size: 20px;
+    padding: 16px 32px;
+    font-family: 'Montserrat', sans-serif; }
 
 .kid-movie:hover .kid-movie-poster {
   opacity: 0.5;
@@ -82,9 +90,25 @@ input {
   opacity: 1;
   cursor: pointer; }
 
-p {
-  background-color: #940092;
-  color: white;
-  font-size: 20px;
-  padding: 16px 32px;
-  font-family: 'Montserrat', sans-serif; }
+footer {
+  margin-top: 75px;
+  min-width: 100%; }
+
+.margin-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 300px;
+  margin-right: 300px;
+  padding-bottom: 25px; }
+  .margin-footer h2 {
+    color: white;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 25px; }
+  .margin-footer p {
+    color: white;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 2px;
+    cursor: pointer; }

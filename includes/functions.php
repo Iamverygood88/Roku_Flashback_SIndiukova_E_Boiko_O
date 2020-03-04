@@ -29,4 +29,32 @@
         return $resultKidMovies;
     }
 
+    function getKidTelevision($conn) {
+
+        $getData = 'SELECT * FROM tbl_television';
+        $runQuery = $conn->query($getData);
+
+        $resultKidTelevision = array();
+
+        while ($row = $runQuery->fetch(PDO::FETCH_ASSOC)) {
+            $resultKidTelevision[] = $row;
+        }
+
+        return $resultKidTelevision;
+    }
+
+    function getMusic($conn) {
+
+        $getData = 'SELECT * FROM tbl_music';
+        $runQuery = $conn->query($getData);
+
+        $resultMusic = array();
+
+        while ($row = $runQuery->fetch(PDO::FETCH_ASSOC)) {
+            $resultMusic[] = $row;
+        }
+
+        return $resultMusic;
+    }
+
 ?>

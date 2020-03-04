@@ -72,6 +72,14 @@ body {
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
+
+    p {
+        background-color:#940092;
+        color: white;
+        font-size: 20px;
+        padding: 16px 32px;
+        font-family: 'Montserrat', sans-serif;
+      }
   }
   
 
@@ -83,13 +91,7 @@ body {
     opacity: 1;
   }
   
-  p {
-    background-color:#940092;
-    color: white;
-    font-size: 20px;
-    padding: 16px 32px;
-    font-family: 'Montserrat', sans-serif;
-  }
+  
 
 
 .u-avatar{ 

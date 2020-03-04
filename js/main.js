@@ -98,6 +98,46 @@ var vm = new Vue({
     setKidMoviesPrefs() {
       // this is the preferences control, hit the api when ready (or use a component)
       console.log('set user prefs here');
+    }, 
+
+    getKidTelevisionData() {
+      //do a fetch call here and get the user from the DB
+      const url = '../../includes/index.php?getKidTelevision=1';
+
+      fetch(url) // get data from the DB 
+      .then(res => res.json()) // translate JSON from DB to plain object
+      .then(data => { //use the plain data object (the user)
+        console.log(data);
+        
+        // log it to the console (testing)
+        this.televisionKid.settings = data[0];
+      })
+      .catch((error) => console.error(error))
+
+    },
+    setKidTelevisionPrefs() {
+      // this is the preferences control, hit the api when ready (or use a component)
+      console.log('set user prefs here');
+    },
+
+    getMusicData() {
+      //do a fetch call here and get the user from the DB
+      const url = '../../includes/index.php?getMusic=1';
+
+      fetch(url) // get data from the DB 
+      .then(res => res.json()) // translate JSON from DB to plain object
+      .then(data => { //use the plain data object (the user)
+        console.log(data);
+        
+        // log it to the console (testing)
+        this.music.settings = data[0];
+      })
+      .catch((error) => console.error(error))
+
+    },
+    setMusicPrefs() {
+      // this is the preferences control, hit the api when ready (or use a component)
+      console.log('set user prefs here');
     }
 
   }
