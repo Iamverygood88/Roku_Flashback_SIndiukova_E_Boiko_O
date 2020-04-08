@@ -25,15 +25,15 @@ export default {
    methods: {
 
 
-    // openLightbox: function () {
-    //     let lightbox = document.querySelectorAll('.lightbox');
-    //     lightbox.forEach(lightbox => {
-    //         lightbox.classList.add('lightbox-on');
+    openLightbox: function () {
+        let lightbox = document.querySelectorAll('.lightbox');
+        lightbox.forEach(lightbox => {
+            lightbox.classList.add('lightbox-on');
             
-    //     });
+        });
         
 
-    //   },
+      },
   
 
         
