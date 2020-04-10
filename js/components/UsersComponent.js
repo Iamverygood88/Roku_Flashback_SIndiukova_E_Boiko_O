@@ -28,13 +28,15 @@ export default {
     },
 
     methods: {
+
         fetchAllUsers() {
-            let url = `./includes/index.php?getUsers=true`;
-            fetch(url)
-            .then(res => res.json())
-            .then(data => {this.usersList = data})
-            .catch((err) => {console.error(err)})
-        }
+			let url = './admin/admin_getusers.php?allusers=true';
+
+			fetch(url)
+			.then(res => res.json())
+			.then(data => this.usersList = data)
+			.catch((error) => console.error(error))
+		}
     },
 
     components: {

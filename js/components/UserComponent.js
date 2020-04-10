@@ -13,7 +13,7 @@ export default {
     </router-link>
   
     <div class="box-hover">
-    <p class="user-name">{{liveuser.user_name}}</p>
+    <p class="user-name">{{liveuser.uname}}</p>
     </div>
     
     

@@ -1,0 +1,245 @@
+// start lightbox
+
+
+
+.rate {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    img {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        height: 60px;
+        width: 60px;
+        cursor: pointer;
+    }
+
+    .rs-one {
+        margin-top: 15px;
+        background: url(../images/kid_star_1.svg) no-repeat;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+    }
+
+    .rs-two {
+        margin-top: 15px;
+        background: url(../images/kid_star_2.svg) no-repeat;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+    }
+
+    .rs-three {
+        margin-top: 15px;
+        background: url(../images/kid_star_3.svg) no-repeat;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+    }
+
+    .rs-four {
+        margin-top: 15px;
+        background: url(../images/kid_star_4.svg) no-repeat;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+    }
+
+    .rs-five {
+        margin-top: 15px;
+        background: url(../images/kid_star_5.svg) no-repeat;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+    }
+
+
+    
+}
+.lightbox{
+    display:none;
+    position:fixed;
+    top: 10%;
+    left: 10%;
+    background: url(../images/lbox_bg.png);
+    background-size: cover;
+    color:white;
+    width:80%;
+    height: 80%;
+    overflow: scroll;
+
+    button {
+        background-color: transparent;
+        border: none;
+        outline:none;
+        text-decoration: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+    }
+    
+}
+
+select {
+    margin-top: 20px;
+}
+
+.close-lightbox {
+    position: absolute;
+    right: 30px;
+    margin-top: 30px;
+    background: url(../images/x.svg) no-repeat;
+    width: 50px;
+    height: 50px;
+
+
+}
+
+
+
+.flex-lightbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.storyline {
+    width: 300px;
+
+}
+
+.video-player {
+    margin-top: 10%;
+    width: 800px;
+    height: 500px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    video {
+        width: 600px;
+        margin: 0 auto;
+    }
+}
+
+.header-two-lightbox {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    justify-content:space-between;
+}
+
+.lightbox-style-content {
+    width: 400px;
+    margin-top: 10%;
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-size: 35px;
+    }
+    h3, h4 {
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-size: 25px;
+        margin-top: 15px;
+    }
+
+    p {
+        margin-top: 30px;
+        line-height: 25px;
+        font-size: 20px;
+    }
+
+    input {
+        margin-top: 20px;
+        border: 2px white solid;
+        text-align: center;
+        border-radius: 35px;
+        background: transparent;
+        height: 40px;
+        width: 300px;
+    }
+
+    input::placeholder {
+        color: white;
+        font-size: 15px;
+    }
+
+    .input-flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    button{
+        margin-top: 20px;
+        margin-left: 10px;
+        font-size: 20px;
+        background-color: transparent;
+        border: none;
+        outline:none;
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        text-decoration: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        cursor: pointer;
+
+    }
+
+    button:hover{
+
+        color: #662d91;
+    }
+
+
+    .colortext {
+        color: white;
+        font-size: 15px;
+        
+
+    }
+
+    h5 {
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-size: 15px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        width: 330px;
+        text-align: center;
+    }
+
+    h6 {
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        font-size: 20px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        width: 330px;
+    }
+
+    h5:hover {
+        color: #662d91;
+    }
+
+
+    .com-area {
+        width: 330px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+ 
+        li {
+            margin-top: 5px;
+        }
+     }
+
+}
+
+
+// end lightbox
