@@ -26,8 +26,8 @@ Roku Flashback App is a fully responsive website (mobile, tablet and desktop). T
 - **Evgeniia Sindiukova** -Front-end and Back-end developer
 - **Olha Boiko** - Graphic Designer
 
-## Professor
+## License
 
-- **Trevor Van Rys** 
+[MIT](https://choosealicense.com/licenses/mit/)
 
 
