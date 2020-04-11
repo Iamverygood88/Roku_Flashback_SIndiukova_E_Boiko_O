@@ -2,7 +2,9 @@ import KidsPage from './components/KidsPage.js';
 import UsersComponent from "./components/UsersComponent.js";
 import AdultPage from './components/AdultPage.js';
 import LoginPage from './components/loginComponent.js';
-import AdminPage from './components/AdminComponent.js';
+import TheUpdateMoviesForm from './components/UpdateMoviesComponent.js';
+import TheUpdateTVForm from './components/UpdateTVComponent.js';
+import TheUpdateMusicForm from './components/UpdateMusicComponent.js';
 
 
 
@@ -22,7 +24,9 @@ const router = new VueRouter({
     }
   },
     {path: '/login', name: "login", component: LoginPage},
-    {path: '/admin', name: "adminpanel", component: AdminPage},
+    { path: "/updatemovies", name: "update_movies", component: TheUpdateMoviesForm },
+    { path: "/updatetv", name: "update_tv", component: TheUpdateTVForm },
+    { path: "/updatemusic", name: "update_music", component: TheUpdateMusicForm }
 
 
   ]

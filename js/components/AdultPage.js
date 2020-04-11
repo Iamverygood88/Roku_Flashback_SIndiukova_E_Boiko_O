@@ -8,13 +8,27 @@ export default {
     <h1 class="user-message"> {{message}} </h1>
     <h2 class="kids-message"> {{adultMess}} </h2>
     </div>
+    <div class="flex-search">
     <input type="text" placeholder="" class="colortext">
     <img :src="'images/' + search" alt="search button" class="search-button">
     <img :src="'images/' + logOut" alt="log out button" class="logOut-button" v-on:click="logout()">
     <img :src="'images/' + avatarIcon" alt="Avatar Icon" class="avatar-button" v-on:click="settings">
     </div>
+    </div>
     <div class="movies-section">
+    <div class="nav-filter">
     <h2 class="movie-header"> {{movieHeader}} </h2>
+    <nav class="filter">
+    <ul>
+    <li><a href="all" @click.prevent="fetchAllKidMovies">All</a></li>
+    <li><a href="1950" @click.prevent="filterMedia('1950')">1950s</a></li>
+    <li><a href="1960" @click.prevent="filterMedia('1960')">1960s</a></li>
+    <li><a href="1970" @click.prevent="filterMedia('1970')">1970s</a></li>
+    <li><a href="1980" @click.prevent="filterMedia('1980')">1980s</a></li>
+    <li><a href="1990" @click.prevent="filterMedia('1990')">1990s</a></li>
+    </ul>
+    </nav>
+    </div>
     <div class="movie-flex">
     <div class="kid-movie"v-if="kidsm.age_appropriateness === '18A' || kidsm.age_appropriateness === 'PG' || kidsm.age_appropriateness === '14A' || kidsm.age_appropriateness === 'R'" v-for="kidsm in kidMoviesList"> 
     <img :src="'images/movies_children/' + kidsm.movie_cover" alt="movie poster" @click="loadMovie(kidsm)" class="kid-movie-poster">
@@ -25,7 +39,19 @@ export default {
     </div>
     </div>
     <div class="movies-section">
+    <div class="nav-filter">
     <h2 class="movie-header"> {{televisionHeader}} </h2>
+    <nav class="filter">
+    <ul>
+    <li><a href="all" @click.prevent="fetchAllKidTelevision">All</a></li>
+    <li><a href="1950" @click.prevent="filterMediaTV('1950')">1950s</a></li>
+    <li><a href="1960" @click.prevent="filterMediaTV('1960')">1960s</a></li>
+    <li><a href="1970" @click.prevent="filterMediaTV('1970')">1970s</a></li>
+    <li><a href="1980" @click.prevent="filterMediaTV('1980')">1980s</a></li>
+    <li><a href="1990" @click.prevent="filterMediaTV('1990')">1990s</a></li>
+    </ul>
+    </nav>
+    </div>
     <div class="movie-flex">
     <div class="kid-movie" v-if="kidst.age_appropriateness === 'PG'" v-for="kidst in kidTelevisionList">
     <img :src="'images/television_children/' + kidst.television_cover" alt="tv poster" class="kid-movie-poster" @click="loadMovie(kidst)">
@@ -36,7 +62,19 @@ export default {
     </div>
     </div>
     <div class="movies-section">
+    <div class="nav-filter">
     <h2 class="movie-header"> {{musicHeader}} </h2>
+    <nav class="filter">
+    <ul>
+    <li><a href="all" @click.prevent="fetchAllMusic">All</a></li>
+    <li><a href="1950" @click.prevent="filterMediaMsc('1950')">1950s</a></li>
+    <li><a href="1960" @click.prevent="filterMediaMsc('1960')">1960s</a></li>
+    <li><a href="1970" @click.prevent="filterMediaMsc('1970')">1970s</a></li>
+    <li><a href="1980" @click.prevent="filterMediaMsc('1980')">1980s</a></li>
+    <li><a href="1990" @click.prevent="filterMediaMsc('1990')">1990s</a></li>
+    </ul>
+    </nav>
+    </div>
     <div class="movie-flex">
     <div class="kid-movie" v-if="kidsms.age_appropriateness === 'A&K' || kidsms.age_appropriateness === 'A'" v-for="kidsms in musicList"> 
     <img :src="'images/music/' + kidsms.music_cover" alt="music poster" @click="loadMovie(kidsms)" class="kid-movie-poster">
@@ -59,6 +97,13 @@ export default {
     <h4>{{LighboxDetails.movie_runtime}}</h4>
     </div>
     <p v-html="LighboxDetails.movie_storyline"></p>
+    <div class="rate">
+    <div class="rs-one-adult" v-on:click="rateone"></div>
+    <div class="rs-one-adult" v-on:click="rateone"></div>
+    <div class="rs-one-adult" v-on:click="rateone"></div>
+    <div class="rs-one-adult" v-on:click="rateone"></div>
+    <div class="rs-one-adult" v-on:click="rateone"></div>
+    </div>
     <div class="input-flex">
     <input type="text" v-model="newComment" placeholder="Leave a comment" class="colortext">
     <button v-on:click="addComment">Add</button>
@@ -129,7 +174,7 @@ export default {
             logOut: "in_out.svg",
             avatarIcon: "login1.svg",
             movieHeader: "Movies",
-            televisionHeader: "Television",
+            televisionHeader: "TV",
             musicHeader: 'Music', 
             FAQ: 'FAQ',
             S: 'Support',
@@ -165,6 +210,56 @@ export default {
 
     methods: {
 
+        rateone() {
+            let star = document.querySelectorAll('.rs-one-adult');
+            star.forEach(star => {
+
+            star.style.backgroundImage = "url('images/adult_star_fill.svg')";
+                
+            });
+             
+        },
+
+
+        filterMedia(filter) {
+
+            let url = `./admin/index.php?media=movies&filter=${filter}`;
+            fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                this.kidMoviesList = data;
+                this.LighboxDetails = data[0];
+            })
+            .catch((err) => {console.error(err)})
+
+        },
+
+        filterMediaTV(filter) {
+
+            let url = `./admin/index.php?media=television&filtertv=${filter}`;
+            fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                this.kidTelevisionList = data;
+                this.LighboxDetails = data[0];
+            })
+            .catch((err) => {console.error(err)})
+
+        },
+
+        filterMediaMsc(filter) {
+
+            let url = `./admin/index.php?media=music&filtermsc=${filter}`;
+            fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                this.musicList = data;
+                this.LighboxDetails = data[0];
+            })
+            .catch((err) => {console.error(err)})
+
+        },
+
         logout() {
             this.$router.push({ name: "home" });
             this.authenticated = false;
@@ -173,7 +268,7 @@ export default {
 
         settings() {
 
-            this.$router.push({ name: "adminpanel" });
+            this.$router.push({ name: "update_movies" });
 
         },
 

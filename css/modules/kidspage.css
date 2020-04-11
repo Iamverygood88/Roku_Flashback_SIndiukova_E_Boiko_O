@@ -1,76 +1,90 @@
-.kids-section {
-  background: url(../images/bg_k.jpg) fixed;
-  background-size: cover;
-  min-width: 100%;
-  min-height: 100%; }
+.nav-filter {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto; }
+
+.filter {
+  margin: 10px auto 0 auto;
+  width: 300px; }
+  .filter ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto; }
+  .filter a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px; }
+  .filter a:hover {
+    border-bottom: 3px solid white; }
 
 .kids-message {
-  margin-left: 355px;
+  text-align: center;
   font-family: 'Montserrat', sans-serif;
   color: white;
   font-size: 20px; }
-
-.header-kids {
-  display: flex;
-  flex-direction: row; }
-  .header-kids input {
-    width: 400px;
-    height: 30px;
-    outline: 0;
-    background: transparent;
-    border: 2px solid white;
-    margin-top: 48px;
-    margin-left: 85px; }
-
-.colortext {
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-  font-size: 20px; }
-
-.search-button {
-  width: 30px;
-  height: 40px;
-  margin-top: 45px;
-  margin-left: 12px; }
-
-.logOut-button {
-  width: 38px;
-  height: 38px;
-  margin-top: 45px;
-  margin-left: 150px;
-  cursor: pointer; }
 
 .avatar-button {
   width: 33px;
   height: 33px;
-  margin-top: 47px;
-  margin-left: 25px;
+  margin-top: 20px;
+  margin-left: 10px;
   cursor: pointer; }
 
-.movies-section {
-  margin-left: 300px;
-  margin-right: 300px; }
+.header-kids {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .header-kids .flex-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+  .header-kids input {
+    display: none;
+    width: 270px;
+    height: 30px;
+    outline: 0;
+    background: transparent;
+    border: 2px solid white;
+    margin: 20px 0 20px 0; }
+
+.search-button {
+  width: 30px;
+  height: 40px;
+  margin-top: 17px;
+  margin-left: 5px; }
+
+.logOut-button {
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  margin-top: 17px;
+  margin-left: 5px; }
 
 .movie-header {
   font-family: 'Montserrat', sans-serif;
   color: white;
-  font-size: 40px;
-  margin-top: 130px;
-  text-transform: uppercase; }
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-align: center; }
 
 .movie-flex {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap; }
+  flex-direction: column;
+  justify-content: center; }
 
 .kid-movie-poster {
-  margin-top: 25px;
+  margin-top: 10px;
   padding: 13px;
   border: 2px solid white; }
 
 .kid-movie {
-  position: relative; }
+  position: relative;
+  margin: 0 auto; }
   .kid-movie img {
     transition: .5s ease;
     backface-visibility: hidden;
@@ -92,24 +106,159 @@
   cursor: pointer; }
 
 footer {
-  margin-top: 75px;
+  margin-top: 20px;
   min-width: 100%; }
 
 .margin-footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-left: 300px;
-  margin-right: 300px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   padding-bottom: 25px; }
   .margin-footer h2 {
     color: white;
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
-    margin-bottom: 25px; }
+    margin-bottom: 15px;
+    margin-top: 15px; }
   .margin-footer p {
     color: white;
     font-size: 13px;
     font-family: 'Montserrat', sans-serif;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
     cursor: pointer; }
+
+@media screen and (min-width: 768px) {
+  .nav-filter {
+    display: flex;
+    flex-direction: row;
+    width: 575px;
+    margin: 0 auto; }
+  .filter {
+    margin: 90px 55px 0 auto;
+    width: 300px; }
+    .filter ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0 auto; }
+    .filter a {
+      text-decoration: none;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px; }
+    .filter a:hover {
+      border-bottom: 3px solid white; }
+  footer {
+    margin-top: 75px; }
+  .margin-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: left; }
+    .margin-footer h2 {
+      margin-bottom: 25px; }
+    .margin-footer p {
+      margin-bottom: 2px; }
+  .kid-movie {
+    margin: 0 45px 0 0; }
+  .kid-movie-poster {
+    margin-top: 25px; }
+  .movie-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 550px;
+    margin: 0 auto; }
+  .movie-header {
+    font-size: 40px;
+    margin-top: 80px;
+    text-align: left;
+    margin-bottom: 0px;
+    margin-left: 10px; }
+  .logOut-button {
+    margin-top: 45px;
+    margin-left: 5px; }
+  .kids-section {
+    background: url(../images/bg_k.jpg) fixed;
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100%; }
+  .kids-message {
+    margin-left: 90%; }
+  .header-kids {
+    flex-direction: row; }
+    .header-kids input {
+      width: 300px;
+      margin-top: 48px;
+      margin-left: 60px;
+      display: block; }
+  .colortext {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 20px; }
+  .search-button {
+    margin-top: 45px;
+    margin-left: 12px; }
+  .avatar-button {
+    width: 33px;
+    height: 33px;
+    margin-top: 47px;
+    margin-left: 10px;
+    cursor: pointer; } }
+
+@media screen and (min-width: 1150px) {
+  .movie-header {
+    margin-left: -50px; }
+  .nav-filter {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    margin: 0 auto; }
+  .filter {
+    margin: 90px 0 0 auto;
+    width: 600px; }
+    .filter ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0 auto; }
+    .filter a {
+      text-decoration: none;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 25px; }
+    .filter a:hover {
+      border-bottom: 3px solid white; }
+  .movie-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 1100px; }
+  .margin-footer {
+    margin-left: 100px;
+    margin-right: 100px; }
+  .header-kids input {
+    width: 400px; }
+  .avatar-button {
+    width: 33px;
+    height: 33px;
+    margin-top: 47px;
+    margin-left: 20px;
+    cursor: pointer; }
+  .logOut-button {
+    margin-top: 45px;
+    margin-left: 15px; } }
+
+@media screen and (min-width: 1350px) {
+  .margin-footer {
+    margin-left: 200px;
+    margin-right: 200px; } }
+
+@media screen and (min-width: 1550px) {
+  .margin-footer {
+    margin-left: 300px;
+    margin-right: 300px; } }

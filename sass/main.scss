@@ -4,11 +4,24 @@
 @import 'modules/login.scss';
 @import 'modules/lightbox.scss';
 
-
-
-label {
-    display: none;
+//admin panel
+.router-flex {
+    margin: 0 auto;
+    width: 285px
 }
+.upd-movies {
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 30px 0 auto;
+    font-size: 23px;
+}
+
+.upd-movies:hover {
+    border-bottom: 3px solid white;
+}
+
+// end
 
 body {
     background: url(../images/bg1.jpg) no-repeat center center fixed;
@@ -17,59 +30,51 @@ body {
     min-height: 100%;
 }
 
-
-.parent {
-    margin-right: 20px;
-    background-color: purple; 
-    width: 200px;
-    height: 200px;
-}
-
-.child {
-    background-color: pink;
-    width: 200px;
-    height: 200px;
-}
-
-.menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 250px;
-
-}
-
 .user-message {
-    margin-left: 350px;
+    text-align: center;
     font-family: 'Montserrat', sans-serif;
     margin-top: 25px;
     color: white; 
-    font-size: 70px;
+    font-size: 50px;
 }
 
-.user-name {
+.welcome-message{
+
     color: white;
-   
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin-top: 15px;
+    
+}
+
+
+label {
+    display: none;
 }
 
 .col-sm-12 {
     display: flex;
-    flex-direction: row;
-    width: 480px;
-    justify-content: space-between; 
-    margin:5% auto 0 auto;
-    
-    
+    flex-direction: column;
+    justify-content: center; 
+    margin:0 auto;
+     
 }
 
 .col-sm-1 {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px auto 0 auto;
 
     img {
         transition: .5s ease;
         backface-visibility: hidden;
+
     }
 }
+
 
 .box-hover {
     transition: .5s ease;
@@ -109,12 +114,63 @@ body {
     
 }
 
+
+
+@media screen and (min-width:768px){
+
 .welcome-message{
-    color: white;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+
     font-size: 30px;
     margin-top: 150px;
+    
+}
+
+.user-message {
+    margin-left: 20%;
+    margin-top: 25px;
+    font-size: 70px;
+    text-align: left;
+}    
+
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 250px;
+
+}
+
+
+.user-name {
+    color: white;
+   
+}
+
+.col-sm-12 {
+    display: flex;
+    flex-direction: row;
+    width: 480px;
+    justify-content: space-between; 
+    margin:5% auto 0 auto;
+    
+    
+}
+
+.col-sm-1 {
+    position: relative;
+    margin: 0;
+
+    img {
+
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
+}
+
+
+
+
 
 }
 

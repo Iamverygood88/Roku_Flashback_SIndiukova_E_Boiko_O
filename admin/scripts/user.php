@@ -1,7 +1,4 @@
 <?php 
-
-
-
 function getAllUsers(){
     $pdo = Database::getInstance()->getConnection();
 
@@ -31,28 +28,5 @@ function getAllUsers(){
         
           return 'There was a problem getting the users';
     }
-}
-
-function updateagetable(){
-    $pdo = Database::getInstance()->getConnection();
-
-    $update_age_query = 'UPDATE tbl_movies SET age_appropriateness = :ageapprop WHERE id = :id';
-
-    $update_age_set = $pdo->prepare($update_age_query);
-    $update_age_result = $update_age_set->execute(
-        array (
-            ':ageapprop' => $_POST['age_appropriateness'],
-            ':id' => $id
-        )
-    );
-
-    if ($update_age_result) {
-       
-        return array('result' => $update_age_result);
-    } else {
-        
-        return array('result' => false);
-    }
-
 }
 
